@@ -10,6 +10,19 @@
     <script>
         const valor = localStorage.getItem("DigitalItem")
         document.write("O valor do Item é: " + valor)
+
+
+        const aluno = {nome: 'max', idade: 12}
+        //convertento objeto para texto
+        const objetoTexto = JSON.stringify(aluno)
+
+        localStorage.setItem('token', objetoTexto)
+
+        const textoObjeto = localStorage.getItem(token)
+
+        //convertento texto para objeto
+        const objeto = JSON.parse(textoObjeto)
+        console.log(objeto.nome)
     </script>
 <br>
 <a href="1_localstorage.html">CLIQUE AQUI PARA VOLTAR</a>
