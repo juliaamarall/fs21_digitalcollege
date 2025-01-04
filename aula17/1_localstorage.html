@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCAL STORAGE</title>
+</head>
+<body>
+    <button onclick="adicionarItem()"> ADICIONAR ITEM</button>
+    <button onclick="consultarItem()">EXIBIR ITEM</button>
+    <button onclick="excluirItem()">EXCLUIR ITEM </button>
+    <a href="2_localstorage.html">OUTRA PÁGINA</a>
+<script>
+    // adiciona um um item na chave DigitalItem
+    function adicionarItem(){
+        const valor = prompt("Digite um item: ")
+        localStorage.setItem('DigitalItem', valor)
+    }
+    // consulta o item que foi adicionado na função ( adicionarItem())
+    function consultarItem(){
+        const valor = localStorage.getItem("DigitalItem")
+        alert("Item: " + valor);
+    }
+    // exclui o item que estava na chave adicionarItem()
+    function excluirItem(){
+        localStorage.removeItem("DigitalItem")
+        consultarItem()
+    }
+
+
+    localStorage.setItem("digitalToken", 'lkjhgf')
+
+    const token = localStorage.getItem("digitalToken")
+    console.log(token)
+</script>
+</body>
+</html>
