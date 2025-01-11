@@ -10,45 +10,63 @@
     <!-- LINK CSS -->
      <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="form-cep" class="container text-center ">
-        <form class="bg-secondary row justify-content-center" id="formEndereco">
-            <div>
-                <label for="cep">CEP</label>
-                <input type="number" id="cep" name="cep">
-                <button type="button" onclick="buscarCep()">Buscar</button>
-            </div>
-            <div>
-                <label for="logradouro">LOGRADOURO</label>
-                <input type="text" id="logradouro">
-            </div>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="bg-secondary col-md-6 offset-md-3">
+                <div id="form-cep">
+                    <form id="formEndereco">
+                        <div>
+                            <label for="cep">CEP</label>
+                            <input type="number" id="cep" name="cep" class="form-control">
+                            <button type="button" onclick="buscarCep()">Buscar</button>
+                        </div>
+                        <div>
+                            <label for="logradouro">LOGRADOURO</label>
+                            <input type="text" id="logradouro" class="form-control">
+                        </div>
+                        <div>
+                            <label for="numero">Nº</label>
+                            <input type="text" id="numero" class="form-control">
+                        </div>
+            
+                        <div>
+                            <label for="complementp">COMPLEMENTO</label>
+                            <input type="text" id="complemento" class="form-control">
+                        </div>
+            
+                        <div>
+                            <label for="bairro">BAIRRO</label class="form-control">
+                            <input type="text" id="bairro">
+                        </div>
+            
+                        <div>
+                            <label for="uf">UF</label>
+                            <input type="text" id="uf" class="form-control">
+                        </div>
+            
+                        <div>
+                            <label for="estado">ESTADO</label>
+                            <input type="text" id="estado" class="form-control">
+                        </div>
+            
+                        <div>
+                            <label for="regiao">REGIÃO</label>
+                            <input type="text" id="regiao" class="form-control">
+                        </div>
+            
+                        <div>
+                            <button>SALVAR</button>
+                        </div>
+                    </form>
+                </div>
+            
 
-            <div>
-                <label for="bairro">BAIRRO</label>
-                <input type="text" id="bairro">
-            </div>
 
-            <div>
-                <label for="uf">UF</label>
-                <input type="text" id="uf">
             </div>
-
-            <div>
-                <label for="estado">ESTADO</label>
-                <input type="text" id="estado">
-            </div>
-
-            <div>
-                <label for="regiao">REGIÃO</label>
-                <input type="text" id="regiao">
-            </div>
-
-            <div>
-                <button>SALVAR</button>
-            </div>
-        </form>
+        </div>
     </div>
-
+    
     <script>
         function buscarCep(){
             const cep = document.querySelector('#cep').value 
@@ -60,11 +78,14 @@
                 return resposta.json()
             }).then((dados) =>{
                 document.querySelector('#logradouro').value = dados.logradouro
+                document.querySelector('#complemento').value = dados.complemento
                 document.querySelector('#bairro').value = dados.bairro
                 document.querySelector('#uf').value = dados.uf
                 document.querySelector('#estado').value = dados.estado
                 document.querySelector('#regiao').value = dados.regiao
              
+            })catch((error) =>{
+                console.log(error)
             })
         }
 
