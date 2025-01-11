@@ -9,8 +9,9 @@
     <title>CRUD 01 - LOCAL STORAGE</title>
 </head>
 <body>
+
     <!-- inicio da nav bar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">CADASTRO DE PRODUTOS</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,26 +49,65 @@
       </nav>
 
       <!-- fim da nav bar -->
-
+      <div><a class="btn btn-primary" href="lista.html" role="button">Ver Listagem</a></div>
       <!-- formulario para adicionar pessoas na tabela -->
-      <div id="bodyForm">
-          <form id="formCentral">
-            <label for="nome">Nome: </label>
-            <input type="text" id="nome" required>
+      <div id="bodyForm" class="container text-center">
+          <form id="formCentral" class="bg-light">
+            <div>
+              <label for="nome">Nome: </label>
+              <input type="text" id="nome" required>
+            </div>
             <br>
-            <label for="preco">Preço: </label>
-            <input type="number" id="preco" required>
+            <div>
+              <label for="preco">Preço: </label>
+              <input type="number" id="preco" required>
+            </div>
             <br>
-            <label for="descricao">Descrição: </label>
-            <input type="text" id="descricao" required>
+            <div>
+              <label for="descricao">Descrição: </label>
+              <input type="text" id="descricao" required>
+            </div>
             <br>
-            <label for="quantidade">Quantidade: </label>
-            <input type="number" id="quantidade" required>
+            <div>
+              <label for="quantidade">Quantidade: </label>
+              <input type="number" id="quantidade" required>
+            </div>
 
-            <button>Salvar</button>
+            <div><button>Salvar</button></div>
           </form>
       </div>
       <!-- link do javascript  -->
-      <script src="script.js"></script>
+      <script>
+        let lista = [];
+
+const frm = document.querySelector('#formCentral');
+// evita o envio do formulario 
+frm.addEventListener('submit', (event) =>{
+    event.preventDefault(); 
+    // alert("ola")
+
+    // pegando as informações passadas nos campos de input
+    const nome = document.querySelector('#nome').value;
+    const preco = document.querySelector('#preco').value;
+    const descricao = document.querySelector('#descricao').value;
+    const quantidade = document.querySelector('#quantidade').value;
+
+
+    const produto = {
+        nome: nome,
+        preco: preco,
+        descricao: descricao,
+        quantidade: quantidade
+    }
+    // enviando dados para o array
+    lista.push(produto) 
+
+    const produtoLista = JSON.stringify(lista)
+    localStorage.setItem('lista', produtoLista)
+
+    alert('PRODUTO ADICIONADO COM SUCESSO! ')
+
+})
+      </script>
 </body>
 </html>
