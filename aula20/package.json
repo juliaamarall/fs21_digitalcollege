@@ -1,0 +1,15 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "author": "julia",
+
+  "scripts":{
+
+    
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3"
+  }
+}
